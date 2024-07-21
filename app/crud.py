@@ -5,7 +5,7 @@ def get_item(db: Session, item_id: int):
     return db.query(models.ToDoItem).filter(models.ToDoItem.id == item_id).first()
 
 def get_items(db: Session, skip: int = 0, limit: int = 10):
-    return db.query(models.ToDoItem).offset(skip).limit(limit).all()
+    return db.query(models.ToDoItem).offset(skip).limit(limit).all() 
 
 def create_item(db: Session, item: schemas.ToDoItemCreate):
     db_item = models.ToDoItem(**item.dict())
